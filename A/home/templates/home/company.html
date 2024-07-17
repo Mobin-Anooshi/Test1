@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for company in Company %}
+        
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td><a href="{% url "home:assembly" company.id %}">{{ company.company_name }}</a></td>
+        <td>{{ company.number }}</td>
+        <td>{{ company.created }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endblock content %}
